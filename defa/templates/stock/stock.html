@@ -1,0 +1,23 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>Conferência de estoque</h1>
+    <p>Nesta área é possível conferir os materiais disponíveis no almoxarifado</p>
+    <form>
+       <fieldset>
+            <legend>Escolha a forma de busca</legend>
+            <div class="form-group">
+                <label for="search-category">Categoria</label>
+                <select class="form-control" name="" id="search-category">
+                    <option value="reagente">Reagentes</option>
+                    <option value="epi">EPIs</option>
+                    <option value="correlato">Correlatos</option>
+                    <option value="antibiograma">Antibiogramas</option>
+                    <option value="meio-de-cultura">Meios de cultura</option>
+                </select>
+            </div>
+       </fieldset>
+       <button class="btn btn-primary btn-block">Buscar</button>
+    </form>
+{% endblock %}

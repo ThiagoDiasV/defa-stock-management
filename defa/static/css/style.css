@@ -1,0 +1,14 @@
+.active {
+    border-radius: 5px;
+}
+
+nav li {
+    text-align: center;
+    margin: auto;
+}
+
+.footer-ul {
+    display: flex;
+}
+
+
