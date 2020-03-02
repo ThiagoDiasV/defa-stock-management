@@ -7,19 +7,38 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Stock',
+            name="Stock",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('catmat', models.CharField(max_length=6, unique=True)),
-                ('category', models.CharField(choices=[('REAGENTE', 'Reagentes'), ('EPI', 'EPI'), ('CORRELATO', 'Correlatos'), ('MEIO DE CULTURA', 'Meios de Cultura'), ('ANTIBIOGRAMA', 'Antibiograma')], max_length=50)),
-                ('description', models.CharField(max_length=300)),
-                ('presentation', models.CharField(max_length=20)),
-                ('quantity', models.IntegerField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("catmat", models.CharField(max_length=6, unique=True)),
+                (
+                    "category",
+                    models.CharField(
+                        choices=[
+                            ("REAGENTE", "Reagentes"),
+                            ("EPI", "EPI"),
+                            ("CORRELATO", "Correlatos"),
+                            ("MEIO DE CULTURA", "Meios de Cultura"),
+                            ("ANTIBIOGRAMA", "Antibiograma"),
+                        ],
+                        max_length=50,
+                    ),
+                ),
+                ("description", models.CharField(max_length=300)),
+                ("presentation", models.CharField(max_length=20)),
+                ("quantity", models.IntegerField()),
             ],
         ),
     ]

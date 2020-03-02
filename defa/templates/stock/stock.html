@@ -1,23 +1,19 @@
 {% extends '../base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block content %}
     <h1>Conferência de estoque</h1>
     <p>Nesta área é possível conferir os materiais disponíveis no almoxarifado</p>
-    <form>
+    <form action="." method="post">
        <fieldset>
             <legend>Escolha a forma de busca</legend>
             <div class="form-group">
-                <label for="search-category">Categoria</label>
-                <select class="form-control" name="" id="search-category">
-                    <option value="reagente">Reagentes</option>
-                    <option value="epi">EPIs</option>
-                    <option value="correlato">Correlatos</option>
-                    <option value="antibiograma">Antibiogramas</option>
-                    <option value="meio-de-cultura">Meios de cultura</option>
-                </select>
+                {% csrf_token %}
+                <label for="{{ form.category.id_for_label }}">Categoria</label>
+                {% render_field form.category class+="form-control" %}
+            <button type="submit" class="btn btn-block btn-primary mt-3">Buscar</button>
             </div>
        </fieldset>
-       <button class="btn btn-primary btn-block">Buscar</button>
     </form>
 {% endblock %}
