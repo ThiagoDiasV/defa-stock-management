@@ -1,5 +1,5 @@
-from django.shortcuts import render, reverse
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, reverse, redirect
+# from django.http import HttpResponseRedirect
 from .forms import StockCategoryForm
 from .models import Stock
 
@@ -10,8 +10,7 @@ def stock(request):
 
         if form.is_valid():
             category = form.data['category']
-            queryset = query_category(category)
-            return HttpResponseRedirect(reverse('category_view', queryset))
+            return redirect('category_view', category=category)
     else:
         form = StockCategoryForm()
     return render(request, "stock/stock.html", {"form": form})
@@ -23,5 +22,6 @@ def query_category(category):
 
 
 def category_view(request, **kwargs):
-    print(kwargs)
-    return render(request, "stock/category.html")
+    category = kwargs['category']
+    queryset = query_category(category)
+    return render(request, "stock/category.html", {'queryset': queryset})
