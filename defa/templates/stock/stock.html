@@ -5,15 +5,54 @@
 {% block content %}
     <h1>Conferência de estoque</h1>
     <p>Nesta área é possível conferir os materiais disponíveis no almoxarifado</p>
-    <form action="." method="post">
+    <form action="." method="get">
        <fieldset>
             <legend>Escolha a forma de busca</legend>
             <div class="form-group">
                 {% csrf_token %}
                 <label for="{{ form.category.id_for_label }}">Categoria</label>
                 {% render_field form.category class+="form-control" %}
-            <button type="submit" class="btn btn-block btn-primary mt-3">Buscar</button>
+            <button type="submit" id="submit-category" class="btn btn-block btn-primary mt-3">Buscar</button>
             </div>
        </fieldset>
     </form>
+    <section id="table-category">
+        <table class="table table-striped">
+            <thead>
+                <th scope="col">Categoria</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Apresentação</th>
+                <th scope="col">Quantidade em estoque</th>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </section>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script>
+        $("#submit-category").click((e) => {
+            e.preventDefault();
+            let selectedCategory = $("#id_category option:selected").text();
+            $.ajax({
+                type:"GET",
+                url: "category",
+                dataType: "json",
+                data:{category: selectedCategory},
+                success: function( data ) {
+                    let table = $("#table-category");
+                    table.css('opacity', '1');
+                    let tableBody = $("#table-body");
+                    tableBody.empty();
+                    for (let i = 0; i < data.length; i ++) {
+                        let row1 = (`<td>${data[i].fields.category}</td>`);
+                        let row2 = (`<td>${data[i].fields.description}</td>`);
+                        let row3 = (`<td>${data[i].fields.presentation}</td>`);
+                        let row4 = (`<td>${data[i].fields.quantity}</td>`);
+                        tableBody.append(`<tr>${row1}${row2}${row3}${row4}</tr>`);
+                    }
+                }
+            })
+        });
+    </script>
 {% endblock %}

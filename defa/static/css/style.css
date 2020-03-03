@@ -11,4 +11,8 @@ nav li {
     display: flex;
 }
 
+#table-category {
+    opacity: 0;
+    transition: opacity 0.5s linear;
+}
 

@@ -1,18 +1,19 @@
 from django.shortcuts import render, reverse, redirect
-# from django.http import HttpResponseRedirect
 from .forms import StockCategoryForm
 from .models import Stock
+from django.core import serializers
+from django.http import HttpResponse
 
 
 def stock(request):
-    if request.method == "POST":
-        form = StockCategoryForm(request.POST)
+    # if request.method == "POST":
+    #     form = StockCategoryForm(request.POST)
 
-        if form.is_valid():
-            category = form.data['category']
-            return redirect('category_view', category=category)
-    else:
-        form = StockCategoryForm()
+    #     if form.is_valid():
+    #         category = form.data['category']
+    #         return redirect('category', category=category)
+    # else:
+    form = StockCategoryForm()
     return render(request, "stock/stock.html", {"form": form})
 
 
@@ -21,7 +22,9 @@ def query_category(category):
     return queryset
 
 
-def category_view(request, **kwargs):
-    category = kwargs['category']
+def category(request):
+    # from ipdb import set_trace; set_trace()
+    category = request.GET['category']
     queryset = query_category(category)
-    return render(request, "stock/category.html", {'queryset': queryset})
+    json_data = serializers.serialize("json", queryset)
+    return HttpResponse(json_data)
