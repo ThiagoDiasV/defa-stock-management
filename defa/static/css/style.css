@@ -1,18 +1,18 @@
-.active {
-    border-radius: 5px;
-}
-
-nav li {
-    text-align: center;
-    margin: auto;
-}
-
-.footer-ul {
-    display: flex;
-}
-
 #table-category {
     opacity: 0;
     transition: opacity 0.5s linear;
+}
+
+.card-header {
+    background-color: #169e3f;
+}
+
+.card {
+    padding: 0;
+    margin: 1em;
+}
+
+.navbar-brand {
+    font-size: 2em;
 }
 

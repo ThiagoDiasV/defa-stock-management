@@ -4,18 +4,17 @@ from django.db import models
 class Stock(models.Model):
 
     category_choices = [
-        ("REAGENTE", "Reagentes"),
-        ("EPI", "EPI"),
-        ("CORRELATO", "Correlatos"),
-        ("MEIO DE CULTURA", "Meios de Cultura"),
-        ("ANTIBIOGRAMA", "Antibiograma"),
+        ("Reagentes", "Reagentes"),
+        ("EPIs", "EPIs"),
+        ("Correlatos", "Correlatos"),
+        ("Meios de Cultura", "Meios de Cultura"),
+        ("Antibiograma", "Antibiograma"),
     ]
 
-    catmat = models.CharField(max_length=6, unique=True)
     category = models.CharField(max_length=50, choices=category_choices)
     description = models.CharField(max_length=300)
-    presentation = models.CharField(max_length=20)
+    presentation = models.CharField(max_length=40)
     quantity = models.IntegerField()
 
     def __str__(self):
-        return f"{self.catmat} - {self.description}"
+        return f"{self.id} - {self.description}"
