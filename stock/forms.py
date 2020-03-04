@@ -12,4 +12,6 @@ class StockCategoryForm(forms.Form):
         )
 
     except ProgrammingError:
-        pass
+        category = forms.ChoiceField(
+            label="Categoria", widget=forms.Select()
+        )
