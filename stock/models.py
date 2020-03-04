@@ -4,9 +4,9 @@ from django.db import models
 class Stock(models.Model):
 
     category_choices = [
-        ("Reagentes", "Reagentes"),
+        ("Reagentes e correlatos", "Reagentes e correlatos"),
         ("EPIs", "EPIs"),
-        ("Correlatos", "Correlatos"),
+        ("Correlatos em geral", "Correlatos em geral"),
         ("Meios de Cultura", "Meios de Cultura"),
         ("Antibiograma", "Antibiograma"),
         ("Ativos Farmacêuticos", "Ativos Farmacêuticos")
