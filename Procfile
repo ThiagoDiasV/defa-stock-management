@@ -1,1 +1,1 @@
-web: gunicorn defa.wsgi
+web: gunicorn defa.wsgi --log-file -
