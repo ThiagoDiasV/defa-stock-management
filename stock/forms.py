@@ -10,7 +10,10 @@ class StockCategoryForm(forms.Form):
         # category = forms.ChoiceField(
         #     label="Categoria", choices=queryset_choices, widget=forms.Select()
         # )
-        category = forms.ModelChoiceField(queryset=Stock.objects.values_list('category', flat=True).distinct())
+        category = forms.ModelChoiceField(
+            queryset=Stock.objects.values_list('category', flat=True).distinct(),
+            empty_label="Listar tudo"
+            )
     except ProgrammingError:
         category = forms.ChoiceField(
             label="Categoria", widget=forms.Select()
