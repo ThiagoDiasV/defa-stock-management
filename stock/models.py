@@ -9,7 +9,7 @@ class Stock(models.Model):
         ("Correlatos em geral", "Correlatos em geral"),
         ("Meios de Cultura", "Meios de Cultura"),
         ("Antibiograma", "Antibiograma"),
-        ("Ativos Farmacêuticos", "Ativos Farmacêuticos")
+        ("Ativos Farmacêuticos", "Ativos Farmacêuticos"),
     ]
 
     category = models.CharField(max_length=50, choices=category_choices)
@@ -21,4 +21,4 @@ class Stock(models.Model):
         return f"{self.id} - {self.description}"
 
     class Meta:
-        ordering = ['category']
+        ordering = ["category"]

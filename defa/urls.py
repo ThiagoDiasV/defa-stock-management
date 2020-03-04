@@ -6,6 +6,6 @@ from .views import index
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", index, name="index"),
-    path("stock/", include("stock.urls")),
+    path("estoque/", include("stock.urls")),
     path("pgc/", include("pgc.urls")),
 ]

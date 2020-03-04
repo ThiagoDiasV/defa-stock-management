@@ -16,7 +16,7 @@ def query_category(category):
 
 
 def category(request):
-    category = request.GET['category']
+    category = request.GET["category"]
     if category == "Listar tudo":
         queryset = Stock.objects.all()
     else:
