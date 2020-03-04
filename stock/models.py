@@ -18,3 +18,6 @@ class Stock(models.Model):
 
     def __str__(self):
         return f"{self.id} - {self.description}"
+
+    class Meta:
+        ordering = ['category']

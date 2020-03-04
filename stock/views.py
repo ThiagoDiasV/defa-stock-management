@@ -17,6 +17,9 @@ def query_category(category):
 
 def category(request):
     category = request.GET['category']
-    queryset = query_category(category)
+    if category == "Listar tudo":
+        queryset = Stock.objects.all()
+    else:
+        queryset = query_category(category)
     json_data = serializers.serialize("json", queryset)
     return HttpResponse(json_data)
