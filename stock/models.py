@@ -9,6 +9,7 @@ class Stock(models.Model):
         ("Correlatos", "Correlatos"),
         ("Meios de Cultura", "Meios de Cultura"),
         ("Antibiograma", "Antibiograma"),
+        ("Ativos Farmacêuticos", "Ativos Farmacêuticos")
     ]
 
     category = models.CharField(max_length=50, choices=category_choices)
