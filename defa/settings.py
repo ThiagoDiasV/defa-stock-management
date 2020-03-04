@@ -15,7 +15,7 @@ SECRET_KEY = "j_7mub=(sh4eu&&e7z+@lwe20+x_bcvx!7vh4+aly2zmhmel59"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://pharmastock.herokuapp.com/"]
 
 
 # Application definition
@@ -112,6 +112,7 @@ USE_TZ = True
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "defa/static")]
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
 # Configure Django App for Heroku
