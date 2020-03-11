@@ -13,12 +13,13 @@ class Stock(models.Model):
     ]
 
     category = models.CharField(max_length=50, choices=category_choices)
-    description = models.CharField(max_length=300)
+    description = models.CharField(max_length=300, unique=True)
     presentation = models.CharField(max_length=40)
     quantity = models.IntegerField()
+    created_in = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.id} - {self.description}"
 
     class Meta:
-        ordering = ["category"]
+        ordering = ["category", "description"]
