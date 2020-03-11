@@ -26,6 +26,15 @@ body {
     font-size: 2em;
 }
 
+.link-cards {
+    color: #fff;
+}
+
+.link-cards:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
