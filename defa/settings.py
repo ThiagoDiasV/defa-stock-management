@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "stock",
     "pgc",
+    "withdrawal",
     "widget_tweaks",
 ]
 
@@ -69,7 +70,7 @@ WSGI_APPLICATION = "defa.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if sys.argv[1] == 'runserver' or 'collectstatic':
+if sys.argv[1] == "runserver" or "collectstatic":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
@@ -150,4 +151,3 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # Configure Django App for Heroku
 django_heroku.settings(locals())
-
