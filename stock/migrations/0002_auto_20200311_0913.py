@@ -7,28 +7,39 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('stock', '0001_initial'),
+        ("stock", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='stock',
-            options={'ordering': ['category', 'description']},
+            name="stock", options={"ordering": ["category", "description"]},
         ),
         migrations.AddField(
-            model_name='stock',
-            name='created_in',
-            field=models.DateTimeField(auto_now_add=True, default=django.utils.timezone.now),
+            model_name="stock",
+            name="created_in",
+            field=models.DateTimeField(
+                auto_now_add=True, default=django.utils.timezone.now
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='stock',
-            name='category',
-            field=models.CharField(choices=[('Reagentes e correlatos', 'Reagentes e correlatos'), ('EPIs', 'EPIs'), ('Correlatos em geral', 'Correlatos em geral'), ('Meios de Cultura', 'Meios de Cultura'), ('Antibiograma', 'Antibiograma'), ('Ativos Farmacêuticos', 'Ativos Farmacêuticos')], max_length=50),
+            model_name="stock",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("Reagentes e correlatos", "Reagentes e correlatos"),
+                    ("EPIs", "EPIs"),
+                    ("Correlatos em geral", "Correlatos em geral"),
+                    ("Meios de Cultura", "Meios de Cultura"),
+                    ("Antibiograma", "Antibiograma"),
+                    ("Ativos Farmacêuticos", "Ativos Farmacêuticos"),
+                ],
+                max_length=50,
+            ),
         ),
         migrations.AlterField(
-            model_name='stock',
-            name='description',
+            model_name="stock",
+            name="description",
             field=models.CharField(max_length=300, unique=True),
         ),
     ]
