@@ -35,7 +35,9 @@ class Withdrawal(models.Model):
     def __str__(self):
         local_date = timezone.localtime(self.date)
         printable_date = local_date.strftime("%m/%d/%Y - %H:%M:%S")
-        return f"{printable_date} / {self.client} / {self.product} / {self.quantity} units"
+        return (
+            f"{printable_date} / {self.client} / {self.product} / {self.quantity} units"
+        )
 
     class Meta:
         ordering = ["date"]

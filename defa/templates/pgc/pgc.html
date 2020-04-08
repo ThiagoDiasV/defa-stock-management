@@ -3,6 +3,31 @@
 {% load widget_tweaks %}
 
 {% block content %}
-    <h1>Em construção</h1>
-    <p>Aqui será possível cadastrar as demandas do PGC sem necessidade de planilhas</p>
+    <h1>Demandas em aberto no PGC</h1>
+    <p>Selecione abaixo qual demanda você quer enviar</p>
+
+    <form action="." method="get">
+       <fieldset>
+            <legend>Escolha uma das listas abaixo</legend>
+            <div class="form-group">
+                {% csrf_token %}
+                <label for="{{ form.list_name.id_for_label }}">Lista padrão</label>
+                {% render_field form.list_name class+="form-control" %}
+            <button type="submit" id="submit-list-name" class="btn btn-block btn-primary mt-3">Buscar</button>
+            </div>
+       </fieldset>
+    </form>
+    <section id="table-list-name">
+        <table class="table table-striped table-responsive-md">
+            <thead>
+                <th scope="col">Lista</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Número de referência</th>
+                <th scope="col">Unidade</th>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+    </section>
 {% endblock %}
